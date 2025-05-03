@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="icon" href="./image/signup.png" type="icon/x-image">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+</head>
+
+<body>
+    <div class="grid lg:grid-cols-2 w-10/12 mx-auto lg:gap-16">
+        <img src="./image/signup.png" alt="signup" class="w-full">
+        <div class="lg:py-16 py-8">
+            <h1 class="text-5xl font-bold lg:text-left text-center">Register Now</h1>
+            <form class="mt-16 space-y-8" onsubmit="createUser(event)">
+                <div class="flex flex-col gap-2">
+                    <label class="text-gry-600 font-medium text-lg">Fullname</label>
+                    <input onblur="validation('fullname','fullname-error')"
+                        oninput="validation('fullname','fullname-error')" id="fullname" name="fullname" type="text"
+                        class="border border-gray-300 rounded px-3 py-2.5 focus:outline-none"
+                        placeholder="What is your name ?">
+                    <label id="fullname-error" class="font-medium text-rose-500 hidden"></label>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label class="text-gry-600 font-medium text-lg">Email Id</label>
+                    <input id="email" onblur="validation('email','email-error')"
+                        oninput="validation('email','email-error')" name="email" type="text"
+                        class="border border-gray-300 rounded px-3 py-2.5 focus:outline-none"
+                        placeholder="email@mail.com">
+                    <label id="email-error" class="font-medium text-rose-500 hidden"></label>
+
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label class="text-gry-600 font-medium text-lg">Password</label>
+                    <div class="flex border border-gray-300 rounded px-3 py-2.5">
+                        <input id="password" onblur="validation('password','password-error')"
+                            oninput="validation('password','password-error')" name="password" type="password"
+                            class="focus:outline-none flex-1" placeholder="**********">
+                        <button type="button" class="rounded-full cursor-pointer hover:text-rose-500"
+                            onclick="togglePassword()">
+                            <i class="ri-eye-line" id="password-icon"></i>
+                        </button>
+                    </div>
+                    <label id="password-error" class="font-medium text-rose-500 hidden"></label>
+                </div>
+
+                <button class="bg-[#f50057] py-2.5 px-8 rounded text-white hover:bg-[#090814] cursor-pointer">Sign
+                    up</button>
+
+            </form>
+            <div class="flex gap-2 mt-6">
+                <label class="text-gray-500">Already have an account ?</label>
+                <a href="/login.html" class="text-green-600 hover:underline">Sign in</a>
+            </div>
+        </div>
+    </div>
+    <script src="./js/signup.js"></script>
+</body>
+
+</html>
