@@ -5,8 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <link rel="icon" href="./image/avt.jpg" type="icon/x-image">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/cropperjs@1.5.13/dist/cropper.min.css">
+    <script src="https://unpkg.com/cropperjs@1.5.13/dist/cropper.min.js"></script>
+
 </head>
 
 <body>
@@ -18,18 +23,41 @@
                     <h1 class="text-xl font-medium">Ravi Kumar</h1>
                     <p>ravi@gmail.com</p>
                     <button
-                        class="bg-amber-400 text-white font-medium px-6 py-2 rounded hover:bg-amber-500 mt-6 cursor-pointer">
+                        class="relative w-full bg-indigo-500 text-white font-medium px-6 py-2 rounded hover:bg-indigo-600 mt-6 cursor-pointer">
+                        <i class="ri-upload-line"></i>
+                        Choose Image
+                        <input id="file-input" onchange="uploadImage()" type="file" accept="image/*"
+                            class="opacity-0 w-full h-full absolute top-0 left-0 cursor-pointer">
+                    </button>
+
+                    <button onclick="loadCropper()"
+                        class="w-full bg-rose-400 text-white font-medium px-6 py-2 rounded hover:bg-rose-500 mt-6 cursor-pointer">
+                        <i class="ri-crop-line"></i>
+                        Crop Image
+                    </button>
+
+                    <button onclick="downloadImage()" id="download-button"
+                        class="hidden w-full bg-green-400 text-white font-medium px-6 py-2 rounded hover:bg-green-500 mt-6 cursor-pointer">
+                        <i class="ri-download-line"></i>
+                        Download
+                    </button>
+
+
+
+                    <button onclick="logout()"
+                        class="w-full bg-amber-400 text-white font-medium px-6 py-2 rounded hover:bg-amber-500 mt-6 cursor-pointer">
                         <i class="ri-logout-circle-r-line"></i>
                         Logout
                     </button>
                 </div>
             </div>
             <div class="bg-white rounded-2xl p-12 flex-1">
-
+                <img id="picture" src="./image/images.jpg" class="cursor-pointer w-full" alt="Choose Image">
             </div>
         </div>
     </div>
 
 </body>
+<script src="./js/profile.js"></script>
 
 </html>

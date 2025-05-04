@@ -1,3 +1,13 @@
+window.onload = () => {
+   const user = localStorage.getItem("isLogin");
+    if(user) {
+          location.replace('profile.html');
+    }else{
+
+    }
+}
+
+
 const login = (e) => {
 e.preventDefault();
 validation('email','email-error');
@@ -13,6 +23,7 @@ if(user) {
   
     const payload = JSON.parse(user);
     if(password == payload.password) {
+        localStorage.setItem("isLogin",true);
         location.replace("profile.html");
 
     }else{
