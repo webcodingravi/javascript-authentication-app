@@ -1,17 +1,17 @@
 var cropper = null;
 
 window.onload = () => {
-    const user = localStorage.getItem('isLogin');
+    const user = localStorage.getItem('session');
     if(!user) {
         location.replace('login.html');
     }
 
-    
+    showUserInfo();
 }
 
 
 const logout = () => {
-    localStorage.removeItem('isLogin');
+    localStorage.removeItem('session');
     location.replace('login.html');
 }
 
@@ -53,4 +53,23 @@ const downloadImage = () => {
     a.click();
     a.remove();
     
+}
+
+
+const showUserInfo =() =>{
+ const session = localStorage.getItem("session");
+ const sessionFullname = document.getElementById("session-fullname");
+ const sessionEmail = document.getElementById("session-email");
+ const user = JSON.parse(session);
+ sessionFullname.innerHTML = user.fullname;
+ sessionEmail.innerHTML = user.email;
+}
+
+
+const uploadProfilePicture = () => {
+    const input = document.getElementById("profile-input-pic");
+    const userPic = document.getElementById("user-pic");
+    const file = input.files[0];
+    const url = URL.createObjectURL(file);
+    userPic.src = url;
 }

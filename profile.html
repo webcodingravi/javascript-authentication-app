@@ -18,10 +18,15 @@
     <div class="bg-gray-200 min-h-screen py-32">
         <div class="w-10/12 mx-auto flex gap-8">
             <div class="bg-white p-12 rounded-2xl w-[300px] relative">
-                <img src="./image/avt.jpg" alt="profile_pic" class="w-48 h-48 absolute -top-16 left-12 rounded-full">
-                <div class="mt-20 text-center">
-                    <h1 class="text-xl font-medium">Ravi Kumar</h1>
-                    <p>ravi@gmail.com</p>
+                <div class="relative flex items-center justify-center w-[150px] h-[150px] -top-30 left-7">
+                    <img src="./image/avt.png" alt="profile_pic" class="w-full h-full object-cover rounded-full"
+                        id="user-pic">
+                    <input id="profile-input-pic" onchange="uploadProfilePicture()" type="file"
+                        class="opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer" accept="image/*">
+                </div>
+                <div class="-mt-20 text-center">
+                    <h1 class="text-xl font-medium capitalize" id="session-fullname"></h1>
+                    <p id="session-email"></p>
                     <button
                         class="relative w-full bg-indigo-500 text-white font-medium px-6 py-2 rounded hover:bg-indigo-600 mt-6 cursor-pointer">
                         <i class="ri-upload-line"></i>

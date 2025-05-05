@@ -1,5 +1,5 @@
 window.onload = () => {
-   const user = localStorage.getItem("isLogin");
+   const user = localStorage.getItem("session");
     if(user) {
           location.replace('profile.html');
     }else{
@@ -23,7 +23,7 @@ if(user) {
   
     const payload = JSON.parse(user);
     if(password == payload.password) {
-        localStorage.setItem("isLogin",true);
+        localStorage.setItem("session",user);
         location.replace("profile.html");
 
     }else{
