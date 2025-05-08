@@ -58,11 +58,17 @@ const downloadImage = () => {
 
 const showUserInfo =() =>{
  const session = localStorage.getItem("session");
+ const profilePicture = localStorage.getItem("profile-picture")
  const sessionFullname = document.getElementById("session-fullname");
  const sessionEmail = document.getElementById("session-email");
  const user = JSON.parse(session);
  sessionFullname.innerHTML = user.fullname;
  sessionEmail.innerHTML = user.email;
+
+ if(profilePicture) {
+    const userPic = document.getElementById("user-pic");
+    userPic.src = profilePicture;
+ }
 }
 
 
@@ -70,6 +76,12 @@ const uploadProfilePicture = () => {
     const input = document.getElementById("profile-input-pic");
     const userPic = document.getElementById("user-pic");
     const file = input.files[0];
-    const url = URL.createObjectURL(file);
-    userPic.src = url;
+    const fileReader = new FileReader()
+    fileReader.readAsDataURL(file)
+
+    fileReader.onload = (e) =>{
+         const fileString = e.target.result;
+         userPic.src = fileString;
+         localStorage.setItem('profile-picture',fileString);
+    }
 }
